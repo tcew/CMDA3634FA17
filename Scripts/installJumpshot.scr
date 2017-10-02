@@ -1,0 +1,22 @@
+
+# commands to install mpich2 with mpe and jumpshot
+
+cd ~/
+
+# install openjava (do this first)
+sudo apt-get install openjdk-8-jre
+
+# get mpich2 v1.4
+wget http://www.mcs.anl.gov/research/projects/mpich2/downloads/tarballs/1.4/mpich2-1.4.tar.gz
+tar -zxvf mpich2-1.4.tar.gz
+
+# build mpich2
+cd mpich2-1.4
+mkdir build
+cd build
+../configure MPI_CC=mpicc --disable-f77 --with-slog2 --disable-fc
+
+make
+sudo make install
+
+# executables stored in /usr/local/bin
