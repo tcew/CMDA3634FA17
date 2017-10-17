@@ -11,7 +11,8 @@ int main(int argc, char **argv){
   // still serial here
   int i = 6;
 
-  int v[4], veryBad = 0;
+  int *v = (int*) calloc(threadCount, sizeof(int));
+  int veryBad = 0;
   
   // fork the program
 #pragma omp parallel firstprivate(i)
