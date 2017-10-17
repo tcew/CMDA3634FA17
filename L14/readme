@@ -1,0 +1,11 @@
+
+To compile:
+
+gcc -fopenmp -o ompHelloWorld ompHelloWorld.c
+gcc -fopenmp -o ompPrivate ompPrivate.c
+gcc -fopenmp -o ompReduction ompReduction.c
+gcc -fopenmp -o ompCritical ompCritical.c
+
+To run:
+
+./ompHelloWorld
