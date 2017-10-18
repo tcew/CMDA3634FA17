@@ -16,7 +16,7 @@ int main(int argc, char **argv){
   int Nthreads = 1;
   
   struct drand48_data *drandData = 
-    (struct drand48_data*) malloc(Nthreads*sizeof(drand48_data));
+    (struct drand48_data*) malloc(Nthreads*sizeof(struct drand48_data));
 
   // Q2c: add an OpenMP parallel region here, wherein each thread initializes 
   //      one entry in drandData using srand48_r and seed based on thread number
@@ -28,14 +28,16 @@ int main(int argc, char **argv){
     int Ninnertests=10000;
 
     estPi = newPi;
-
+    // Q2d: add an OpenMP parallel for directive here
+    //      to split this loop amongst the 10 threads
+    //      [ add a reduction clauss for the Ninside variable ]
     for(int n=0;n<Ninnertests;++n){
       double x, y;
       ++test;
       
       // call threadsafe reentrant version of drand48
-      drand48_r(drandData[0], &x);
-      drand48_r(drandData[0], &y);
+      drand48_r(drandData+0, &x);
+      drand48_r(drandData+0, &y);
       
       if(x*x+y*y<1){
 	++Ninside;
