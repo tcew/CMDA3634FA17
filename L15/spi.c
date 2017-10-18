@@ -15,12 +15,12 @@ int main(int argc, char **argv){
   // Q2b: add OpenMP API code to set number of threads to 10 here
   int Nthreads = 1;
   
-  struct drand48_data *drandData = 
-    (struct drand48_data*) malloc(Nthreads*sizeof(struct drand48_data));
+  struct drand48_data *drandData; 
+  drandData = (struct drand48_data*) malloc(Nthreads*sizeof(struct drand48_data));
 
   // Q2c: add an OpenMP parallel region here, wherein each thread initializes 
   //      one entry in drandData using srand48_r and seed based on thread number
-  int seed = 0;
+  long int seed = 0;
   srand48_r(seed, drandData+0);
 
   
@@ -40,14 +40,15 @@ int main(int argc, char **argv){
       drand48_r(drandData+0, &y);
       
       if(x*x+y*y<1){
-	++Ninside;
+        ++Ninside;
       }
     }
 
     newPi = Ninside/(double)test;
-    printf("newPi = %lf\n", newPi);
+    printf("newPi = %lf\n", 4.*newPi);
   }while(fabs(newPi-estPi)>tol);
 
+  printf("\n");
   printf("estPi = %lf\n", 4.*newPi);
 
   free(drandData);
