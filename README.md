@@ -15,3 +15,30 @@ Introductory examples for interacting with MPI: initialization, finalization, fi
 
 # L07:
 Using MPI_Send and MPI_Recv to create a "barrier" that all processes must pass through before any process can do something else.
+
+# L08:
+Using MPI to perform a tree based barrier.
+
+# L09:
+Using MPI to perform a tree based reduction.
+
+# L10:
+Using MPI_Probe to examine the nature of incoming MPI messages.
+
+# L11:
+Serial implementation of Monte Carlo algorithm to approximate pi.
+
+# L13:
+MPI based implementation of Monte Carlo algorithm to approximate pi.
+
+# L14:
+Example codes for using OpenMP directives for threading with parallel regions, private variables, and reductions.
+
+# L15:
+Reference serial code for adding OpenMP directives to Monte Carlo computation of pi.
+
+# L16:
+Reference code for making Mandelbrot images using OpenMP directives and API calls.
+
+# L18: 
+Hello world using CUDA.
