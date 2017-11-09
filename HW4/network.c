@@ -107,7 +107,7 @@ double computeDiff(Network net){
   double diff = 0; 
 
   for(i=0; i < net.nodes; i++){
-    diff = pow(net.oldPageRank[i] - net.newPageRank[i], 2);
+    diff += pow(net.oldPageRank[i] - net.newPageRank[i], 2);
   }
   
   return sqrt(diff);
